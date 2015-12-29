@@ -1,13 +1,25 @@
 var http = require('http');
+var fs = require("fs");
+
+// 404 response
+function send404Response(response){
+  response.writeHead(404, {"Content-Type": "text/plain"});
+  response.write("Error 404: Page not found!");
+  response.end();
+}
 
 function onRequest(request, response){
     console.log("A user made a request "+ request.url);
-    response.writeHead(200, {"Context-Type": "text/plain"}); // setting up the response
-    response.write("Here is some data");
-    response.end();
+    if (request.method == "GET" && request.url =="/" ){
+      response.writeHead(200, {"Context-Type": "text/plain"}); // setting up the response
+      // reading index file and feed it on response object
+      fs.createReadStream("./inc.html").pipe(response);
+    } else {
+      send404Response(response);
+    }
 }
 
-http.createServer(onRequest).listen(8888);
+http.createServer(onRequest).listen(process.env.PORT, process.env.IP);
 console.log("server is now running ... ");
 
 /*// Load the http module to create an http server.
