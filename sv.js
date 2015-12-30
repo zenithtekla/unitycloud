@@ -2,18 +2,16 @@ var http = require('http');
 var connect = require('connect');
 var app = connect();
 
-function doFirst(request, response, next){
-  console.log("Bacon");
-  next(); // without next the second object in the stack will never get called
+function profile(req, res){
+  console.log('User requested profile');
 }
 
-function doSecond(request, response, next){
-  console.log("Tuna");
-  next();
+function forum(req, res){
+  console.log('User requested forum');
 }
 
-app.use(doFirst);
-app.use(doSecond);
+app.use('/profile', profile);
+app.use('/forum', forum);
 
 http.createServer(app).listen(process.env.PORT, process.env.IP);
 console.log("Server is running..");
