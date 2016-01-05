@@ -10,7 +10,7 @@ module.exports = {
             DiannaMovie: "Titanic"
         }
     },
-    likedMovie: "Lone Range",
+    likedMovie: "Lone Ranger",
     factory: function () {
         return {
             favMovie: ""

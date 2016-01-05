@@ -3,12 +3,6 @@ var connect = require('connect');
 var fs = require("fs"); // file handler lib
 var app = connect();
 
-function send404Response(res){
-  res.writeHead(404, {"Content-Type": "text/plain"});
-  res.write("Error 404: Page not found!");
-  res.end();
-}
-
 // @app /profile
 function profile(req, res){
   res.writeHead(200, { "Content-Type": "text/plain"});
