@@ -12,11 +12,12 @@
 						{ name: 'Jamie Riley', city: 'Seattle'} ]">-->
 	<div>
 		<!-- Placeholder for views -->
-		<div ng-view=""></div>
+		<div ng-view></div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
 	<script>
-		var demoApp = angular.module('demoApp', []);
+		var demoApp = angular.module('demoApp', ['ngRoute']);
 		demoApp.config(function ($routeProvider){
 			$routeProvider
 				.when('/',{
