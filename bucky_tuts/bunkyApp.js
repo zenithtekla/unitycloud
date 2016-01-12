@@ -41,7 +41,7 @@ User.prototype.uppercut = function uppercut(targetPlayer) {
     targetPlayer.life -= 3;
     console.log(this.name + " just uppercutted " + targetPlayer.name);
     // body...
-}
+};
 
 Wendy.uppercut(Bucky);
 
