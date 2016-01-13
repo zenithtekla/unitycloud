@@ -18,7 +18,7 @@ angular.module('project', ['ngRoute', 'firebase'])
           deferred.resolve(authData);
       });
       return deferred.promise;
-  }
+  };
 })
  
 .service('Projects', function($q, $firebase, fbRef, fbAuth) {
