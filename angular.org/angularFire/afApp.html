@@ -1,0 +1,102 @@
+<!doctype html>
+<html ng-app="sampleApp">
+<head>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="example.css">
+</head>
+<body ng-controller="SampleCtrl">
+    <button ng-click="login()">Login Anonymously</button>
+
+    <p ng-if="authData">Logged in user: <strong>{{ authData.uid }}</strong></p>
+    <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+    <ul>
+      <li ng-repeat="message in messages">
+        <!-- edit a message -->
+        <input ng-model="message.text" ng-change="messages.$save(message)" />
+        <!-- delete a message -->
+        <button ng-click="messages.$remove(message)">Delete Message</button>
+      </li>
+    </ul>
+    <!-- push a new message onto the array -->
+    <form ng-submit="addMessage()">
+      <input ng-model="newMessageText" />
+      <button type="submit">Add Message</button>
+    </form>
+
+<!-- LOADING SCRIPT DEPENDENCIES -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-route.js"></script>
+	
+<!-- CHAT JAVACRIPT -->
+<script>
+  var app = angular.module("sampleApp", ["firebase"]);
+  
+  app.controller("SampleCtrl", ["$scope", "$firebaseAuth", "$firebaseArray",
+  function($scope, $firebaseAuth, $firebaseArray) {
+    var ref = new Firebase("https://zetek.firebaseio.com");
+    auth = $firebaseAuth(ref);
+
+    $scope.login = function() {
+      $scope.authData = null;
+      $scope.error = null;
+
+      auth.$authAnonymously().then(function(authData) {
+        $scope.authData = authData;
+      }).catch(function(error) {
+        $scope.error = error;
+      });
+    };
+    
+    // create a synchronized array
+    /* global $firebaseArray*/
+    $scope.messages = $firebaseArray(ref);
+    // add new items to the array
+    // the message is automatically added to our Firebase database!
+    $scope.addMessage = function() {
+      $scope.messages.$add({
+        text: $scope.newMessageText
+      });
+    };
+  }]);
+    /*ref.authWithPassword({
+      email    : "zetek@gmail.com",
+      password : "***"
+    }, function(error, authData) {
+      if (error) {
+        switch (error.code) {
+          case "INVALID_EMAIL":
+            console.log("The specified user account email is invalid.");
+            break;
+          case "INVALID_PASSWORD":
+            console.log("The specified user account password is incorrect.");
+            break;
+          case "INVALID_USER":
+            console.log("The specified user account does not exist.");
+            break;
+          default:
+            console.log("Error logging user in:", error);
+        }
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+      }
+    });*/
+
+    
+    /*// login with Google
+    $scope.authObj.$authWithOAuthPopup("google").then(function(authData) {
+      console.log("Logged in as:", authData.uid);
+    }).catch(function(error) {
+      console.error("Authentication failed:", error);
+    });*/
+    /*auth.$authWithOAuthPopup("google").then(function(authData) {
+        console.log("Logged in as:", authData.uid);
+      }).catch(function(error) {
+        console.log("Authentication failed:", error);
+    });*/
+</script>
+</body>
+</html>
