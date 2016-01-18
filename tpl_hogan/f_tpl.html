@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HoganJS</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hogan.js/3.0.2/hogan.min.js"></script>
+</head>
+<body>
+    <div class="timeline">
+
+        <!-- load more button -->
+        <button>{{message}}</button>
+        
+        <!-- tweet object -->
+        {{#tweets}}
+        {{> tweet}}
+        {{/tweets}}
+    </div>
+    
+    <!-- include your server-side compiled templates -->
+    <script src="/js/my-templates.js"></script>
+    
+    <!-- render your templates -->
+    <script>
+      var context = { variable: 'myVariable' };
+      var partial = { partial: myPartial };
+      var template = myTemplate.render(context, partial);
+      document.body.innerHTML = template;
+    </script>
+    
+</body>
+</html>

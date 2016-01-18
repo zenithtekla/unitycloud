@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>nunjucks example</title>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/nunjucks/2.3.0/nunjucks.js"></script>
+</head>
+<body>
+    <div id="results"></div>
+    <script>
+        var data = {
+            username: "User",
+            twitter: "joemaddalone",
+            url: "http://www.joemaddalone.com",
+        };
+        var compiled = nunjucks.renderString('<p>Hello {{ username }} {{ twitter }}</p>', 
+            data);
+        document.getElementById('results').innerHTML = compiled;
+        console.log(compiled);
+    </script>
+</body>
+</html>
