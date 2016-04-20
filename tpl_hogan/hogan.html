@@ -11,7 +11,7 @@
             twitter: "joemaddalone",
             url: "http://www.joemaddalone.com",
         };
-        var template = Hogan.compile("@{{twitter}} - {{url}}");
+        var template = Hogan.compile("@{{twitter}} - {url}}");
         var output = template.render(data);
         document.getElementById('output').innerHTML=output;
     </script>

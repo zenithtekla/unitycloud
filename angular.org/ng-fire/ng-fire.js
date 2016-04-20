@@ -1,7 +1,7 @@
 var app = angular.module("sampleApp", ["firebase"]);
 
 app.controller("SampleCtrl", function($scope, $firebaseAuth, $firebaseArray) {
-    var ref = new Firebase("https://zetek.firebaseio.com");
+    var ref = new Firebase("https://ng-yo.firebaseio.com");
     
     // create an instance of the authentication service
     var auth = $firebaseAuth(ref);

@@ -17,8 +17,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-route.js"></script>
 	<script>
-		var demoApp = angular.module('demoApp', ['ngRoute']);
-		demoApp.config(function ($routeProvider){
+		var demoApp = angular.module('demoApp', ['ngRoute'])
+.config(function ($routeProvider){
 			$routeProvider
 				.when('/',{
 					controller: 'SimpleController',
@@ -29,8 +29,8 @@
 					templateUrl: 'Partials/view2.html'
 				})
 				.otherwise({ redirectTo: '/view1'});
-		});
-		demoApp.factory('simpleFactory', function(){
+		})
+.factory('simpleFactory', function(){
 			var customers = [{ name: 'Dave Jones', city: 'Phoenix'},
 								{ name: 'Ruth Johnson', city: 'Atlanta'},
 								{ name: 'Heedy Wahlin', city: 'Chandler'},
@@ -42,7 +42,7 @@
 			factory.postCustomer = function(customer){
 			};
 			return factory;
-		});
+		})
 		/*
 		// Working scripts
 		// define by callback
@@ -66,7 +66,7 @@
 		
 		*/
 		// add reference to the factory for angular to lookup & inject automatically
-		demoApp.controller('SimpleController', function SimpleController($scope, simpleFactory){
+.controller('SimpleController', function SimpleController($scope, simpleFactory){
 			$scope.customers = [];
 			init();
 			

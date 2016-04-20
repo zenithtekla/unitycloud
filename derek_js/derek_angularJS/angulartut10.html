@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="app10" ng-cloak>
+  <head>
+    <title>AngularJS Tutorial 10</title>
+    <style>
+    [ng\:cloak], [ng-cloak], .ng-cloak {
+      display: none;
+    }
+    .thick {
+      font-weight: bold;
+    }
+    .red-class{
+      color: red;
+    }
+    </style>
+  </head>
+  <body>
+
+    <!-- We cover how to modify, set, get attributes, set attributes, get values, set values for HTML elements -->
+
+    <div ng-controller="mainCtrl">
+        <div bb-player-list="bbPlayers" array-item="name | uppercase"></div>
+    
+    <br>
+    <br>
+      <div ng-repeat="player in bbPlayers track by $index">
+        <div ng-class="{'red-class': $last}">
+        <ul>
+           <li>{{ player.name }}</li>
+         </ul>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="js/exam10.js"></script>
+  </body>
+</html>
+

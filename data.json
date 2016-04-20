@@ -1,0 +1,18 @@
+[
+    {
+        "customer": "cust01",
+        "assembly": "assem01",
+        "date_received": "02-08-2015",
+        "time_received": "09:15",
+        "date_completed": "02-23-2015",
+        "time_completed": "10:27"
+    },
+    {
+        "customer": "lov_01",
+        "assembly": "lov_02",
+        "date_received": "lov_03",
+        "time_received": "lov_04",
+        "date_completed": "lov05",
+        "time_completed": "lov_06"
+    }
+]
