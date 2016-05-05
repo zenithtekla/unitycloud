@@ -1,5 +1,5 @@
 <?php
-   	
+   	// TRY-CATCH
    $myFile = "data.json";
    $arr_data = array(); // create empty array
 
