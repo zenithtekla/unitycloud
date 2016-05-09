@@ -1,3 +1,5 @@
+/*global import export */
+
 // ---------- ARRAYS ----------
 // Arrays have variable sizes and can contain multiple types in JS
 var customer = ["Tom Smith", "123 Main", 120.50];
@@ -102,3 +104,13 @@ catch(ex){
   }
 }
 
+[1,2,3].map(n => console.log(n + 1)); // BabelJS [1,2,3].map(n => n + 1);
+for (var i = 0; i < 3; i++) {
+  (function(index) {
+      console.log('iterator: ' + index);
+      //now you can also loop an ajax call here 
+      //without losing track of the iterator value: $.ajax({});
+  })(i);
+}
+
+[0,2,3].forEach(function(i){ console.log('My value:', i); });

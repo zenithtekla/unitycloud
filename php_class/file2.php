@@ -25,4 +25,25 @@
     $loo();
     $too = $myInstance->beta;
     $too('ph');
+    
+    function jerry(){
+        echo 'echo1{jerry\'s snore} ';
+        return 'tom&jerry are sleeping sound!';
+    }
+    
+    function tom($callback){
+        echo 'echo2{tom\'s snore} ' . $callback();
+    }
+    // Tom calls Jerry out
+    tom('jerry'); // RESULT: tom&jerry are sleeping sound
+    
+    function callback ($str) {
+        echo $str. " moo";
+    }
+    
+    function test ($func) {
+        $func('moo');
+    }
+
+    test('callback'); // RESULT: moo moo
 ?>
