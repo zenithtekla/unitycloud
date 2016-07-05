@@ -1,4 +1,22 @@
-var app = angular.module('chirpApp', []);
+var app = angular.module('chirpApp', ['ngRoute']);
+
+// register app configuration using 'ngRoute' module appended above
+// review .jade and the rendering of them in yo-ng app
+app.config(function($routeProvider){
+    $routeProvider
+    .when('/', {
+        templateUrl:'main.html',
+        controller:'mainController'
+    })
+    .when('/login', {
+        templateUrl: 'login.html',
+        controller: 'authController'
+    })
+    .when('/register', {
+        templateUrl: 'register.html',
+        controller: 'authController'
+    });
+});
 
 app.controller('mainController', function($scope){
    $scope.posts = [];
