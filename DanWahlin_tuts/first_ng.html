@@ -12,12 +12,17 @@
 						{ name: 'Jamie Riley', city: 'Seattle'} ]">-->
 	<div>
 		<!-- Placeholder for views -->
+		My Ng-View
 		<div ng-view></div>
+		<br>
+		<br>
+		© - footer - Zetek 2016
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-route.js"></script>
 	<script>
 		var demoApp = angular.module('demoApp', ['ngRoute'])
+// router setup
 .config(function ($routeProvider){
 			$routeProvider
 				.when('/',{
@@ -68,9 +73,12 @@
 		// add reference to the factory for angular to lookup & inject automatically
 .controller('SimpleController', function SimpleController($scope, simpleFactory){
 			$scope.customers = [];
+			// invoke init function below
 			init();
 			
 			function init(){
+				// calling property method of object simpleFactory
+				// simpleFactory ~ factory that was return-ed within itself
 				$scope.customers = simpleFactory.getCustomers();
 			}
 			
@@ -79,7 +87,7 @@
 					name: $scope.newCustomer.name, 
 					city: $scope.newCustomer.city
 				});
-			}
+			};
 		});
 		
 	</script>

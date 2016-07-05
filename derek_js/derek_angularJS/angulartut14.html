@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" ng-app="app14" ng-cloak>
+<head>
+    <meta charset="UTF-8">
+    <title>Tut14</title>
+    <style>
+        [ng\:cloak], [ng-cloak], .ng-cloak{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="mainCtrl">
+        <input type="text" ng-model="userName">
+        <button ng-click="greetUser(userName)">Hello</button>
+        <br><br>
+        URL : {{currURL}} <br><br>
+        baseURL : {{baseURL}} <br><br>
+        dirURL : {{dirURL}} <br><br>
+        Protocol : {{theProtocol}} <br><br>
+        Host : {{currHost}} <br><br>
+        Port : {{currPort}} <br><br>
+        Path : {{currPath}} <br><br>
+        Search : {{currSearch}} <br><br>
+        
+        Current Time : {{time}} <br><br>
+        <label>Message:
+            <input type="text" ng-model="message">
+            <button ng-click="$log.log(message)">log</button>
+            <button ng-click="$log.warn(message)">warn</button>
+            <button ng-click="$log.info(message)">info</button>
+            <button ng-click="$log.error(message)">error</button>
+            <button ng-click="$log.debug(message)">debug</button>
+        </label>
+        
+        <button ng-click="throwException()">Throw Exception</button>
+        <br><br>
+        <input type="text" ng-model="badStuff">
+        <br><br>
+        <span>{{badStuff}}</span>
+        <span ng-bind-html="badStuff"></span>
+        <span ng-bind="badStuff"></span>
+        <!--<p onmouseover=alert('Doing Bad Stuff')>Do Bad Thing</p>-->
+        <span class="sanitized">{{htmlData}}</span>
+        <br><br>
+        <!-- $compile service -->
+        <p get-player-info></p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <!--Used to allow some HTML to avoid sanitization-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-sanitize.js"></script>
+    <script src="js/exam14.js"></script>
+</body>
+</html>

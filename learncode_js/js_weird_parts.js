@@ -104,7 +104,7 @@ $('#parent').on('click', function() {
 // the other way to get around is to bind the parent context right within the child
 $('#parent').on('click', function() {
     $('#child').slideToggle(300, function(){
-        $().toggleClass("active"); // $() = parent, the disadvantage is I have no way to access the inside 'this', child context
+        $().toggleClass("active"); // $() = parent, the disadvantage is I have no way to access the inside 'this', the child context
     }.bind(this));
 });
 
