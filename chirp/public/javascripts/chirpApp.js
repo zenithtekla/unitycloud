@@ -1,7 +1,19 @@
+/* global angular */
 var app = angular.module('chirpApp', ['ngRoute']);
 
-// register app configuration using 'ngRoute' module appended above
-// review .jade and the rendering of them in yo-ng app
+/* REMARKS
+* register app configuration using 'ngRoute' module appended above
+* To review .jade and the rendering of them in yo-ng app
+* yo-ng.r2 major build
+   - npm jade install --save
+   - It is NOW: npm install pug --save, for Express: var pug = require('pug');
+   - converting *.html to *.jade and fix routes.
+   - r2 added Gruntfile.js build script for *.jade files
+   - r2 also fixed livereload ports on C9
+* yo-ng.r1 To review diff of
+        $routeProvide ['ngRoute'] vs $stateProvider ['ui.router']
+* What I love about Python Django is that the framework support routes and configuration
+*/
 app.config(function($routeProvider){
     $routeProvider
     .when('/', {
