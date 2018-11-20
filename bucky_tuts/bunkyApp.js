@@ -60,17 +60,18 @@ function f() {
 }
 f();
 
+/// IFFE
 (function () {
 
-}());
+})();
 
-var regex = /([0-9]{3}).-([0-9]{3})/g; 
-var input = "+1-(800)-555-2468"; 
+var regex = /([0-9]{3}).-([0-9]{3})/g;
+var input = "+1-(800)-555-2468";
 if(regex.test(input)) {
   var matches = input.match(regex);
   for(var match in matches) {
 	console.log(matches[match]);
-  } 
+  }
 } else {
   console.log("No matches found!");
 }

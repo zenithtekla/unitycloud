@@ -10,7 +10,7 @@ var websiteAbout = "client/js/jquery.min.js";
 console.log(path.normalize(websiteHome));
 console.log(path.normalize(websiteAbout));
 
-console.log(path.dirname(websiteHome));   // client/js/  
+console.log(path.dirname(websiteHome));   // client/js/
 console.log(path.basename(websiteHome));  // angular.min.js
 console.log(path.extname(websiteHome));   // .js
 
