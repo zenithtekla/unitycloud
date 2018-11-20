@@ -1,6 +1,7 @@
 var http = require('http');
 var connect = require('connect');
 var fs = require("fs"); // file handler lib
+
 var app = connect();
 
 // @app /profile
@@ -12,7 +13,7 @@ function profile(req, res){
 
 // @app /forum
 function forum(req, res){
-  res.writeHead(200, { "Content-Type": "text/plain"});
+  res.writeHead(200, { "Content-Type": "text/html"});
   fs.createReadStream("./forum.html").pipe(res);
   console.log('User requested forum');
 }
@@ -30,5 +31,6 @@ function forum(req, res){
 app.use('/profile', profile);
 app.use('/forum', forum);
 
-http.createServer(app).listen(process.env.PORT, process.env.IP);
-console.log("Server is running..");
+var port = process.env.PORT || 3000;
+http.createServer(app).listen(port, process.env.IP);
+console.log("Server is running..", port);
